@@ -1,0 +1,23 @@
+#服务服务
+server:
+  port : 8083
+  context-path: /cas-client
+
+#服务名称配置
+spring:
+  application:
+    name: cas-client
+
+#服务日志配置
+logging:
+  path: ./logs
+  config: classpath:logback-spring.xml
+
+# SSO 配置
+sso:
+  client:
+    serverName: http://localhost:8083/cas-client
+    casServer: http://localhost:8080/cas
+    casServerLoginUrl: http://localhost:8080/cas/login
+    casServerLogoutUrl: http://localhost:8080/cas/logout
+    security: http://localhost/cas-demo/j_spring_security_check
