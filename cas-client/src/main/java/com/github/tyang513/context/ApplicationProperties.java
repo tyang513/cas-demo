@@ -10,20 +10,28 @@ import org.springframework.stereotype.Component;
 @Component
 public class ApplicationProperties {
 
-    @Value("${sso.client.serverName}")
+    @Value("${cas.client.serverName}")
     private String serverName;
 
-    @Value("${sso.client.casServer}")
-    private String casServer;
+    @Value("${cas.client.casServerUrlPrefix}")
+    private String casServerUrlPrefix;
 
-    @Value("${sso.client.casServerLoginUrl}")
+    @Value("${cas.client.casServerLoginUrl}")
     private String casServerLoginUrl;
 
-    @Value("${sso.client.casServerLogoutUrl}")
+    @Value("${cas.client.casServerLogoutUrl}")
     private String casServerLogoutUrl;
 
-    @Value("${sso.client.security}")
+    @Value("${cas.client.security}")
     private String securityUrl;
+
+    public String getCasServerUrlPrefix() {
+        return casServerUrlPrefix;
+    }
+
+    public void setCasServerUrlPrefix(String casServerUrlPrefix) {
+        this.casServerUrlPrefix = casServerUrlPrefix;
+    }
 
     public String getServerName() {
         return serverName;
@@ -31,14 +39,6 @@ public class ApplicationProperties {
 
     public void setServerName(String serverName) {
         this.serverName = serverName;
-    }
-
-    public String getCasServer() {
-        return casServer;
-    }
-
-    public void setCasServer(String casServer) {
-        this.casServer = casServer;
     }
 
     public String getCasServerLoginUrl() {

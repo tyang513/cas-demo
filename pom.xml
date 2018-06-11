@@ -17,6 +17,7 @@
     <modules>
         <module>cas-server</module>
         <module>cas-client</module>
+        <module>cas-client-core</module>
     </modules>
 
     <properties>

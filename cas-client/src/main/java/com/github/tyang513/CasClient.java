@@ -17,9 +17,9 @@ import java.net.UnknownHostException;
  */
 @SpringBootApplication
 @EnableAsync
-public class Application {
+public class CasClient {
     
-    private static final Logger logger = LoggerFactory.getLogger(Application.class);
+    private static final Logger logger = LoggerFactory.getLogger(CasClient.class);
 
     /**
      * 系统主应用
@@ -29,7 +29,7 @@ public class Application {
      */
     public static void main(String[] args) throws UnknownHostException {
 
-        SpringApplication app = new SpringApplication(Application.class);
+        SpringApplication app = new SpringApplication(CasClient.class);
         ConfigurableApplicationContext context = app.run(args);
 
         Environment env = context.getEnvironment();

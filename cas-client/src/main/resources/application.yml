@@ -14,10 +14,10 @@ logging:
   config: classpath:logback-spring.xml
 
 # SSO 配置
-sso:
+cas:
   client:
     serverName: http://localhost:8083/cas-client
-    casServer: http://localhost:8080/cas
+    casServerUrlPrefix: http://localhost:8080/cas
     casServerLoginUrl: http://localhost:8080/cas/login
     casServerLogoutUrl: http://localhost:8080/cas/logout
     security: http://localhost/cas-demo/j_spring_security_check
