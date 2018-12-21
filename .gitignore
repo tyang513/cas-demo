@@ -30,7 +30,7 @@ target/
 .idea/
 .DS_Store
 .idea
-overlays/
+#overlays/
 .gradle/
 build/
 bin/
