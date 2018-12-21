@@ -80,12 +80,12 @@
                     <recompressZippedFiles>false</recompressZippedFiles>
                     <archive>
                         <compress>false</compress>
-                        <manifestFile>${project.build.directory}/war/work/org.apereo.cas/cas-server-webapp-tomcat/META-INF/MANIFEST.MF</manifestFile>
+                        <manifestFile>${project.build.directory}/war/work/org.apereo.cas/cas-server-webapp-jetty/META-INF/MANIFEST.MF</manifestFile>
                     </archive>
                     <overlays>
                         <overlay>
                             <groupId>org.apereo.cas</groupId>
-                            <artifactId>cas-server-webapp-tomcat</artifactId>
+                            <artifactId>cas-server-webapp-jetty</artifactId>
                         </overlay>
                     </overlays>
                 </configuration>
