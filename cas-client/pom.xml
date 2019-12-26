@@ -39,6 +39,19 @@
             <artifactId>cas-client-core</artifactId>
             <version>${java.cas.client.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.pac4j/pac4j-core -->
+        <dependency>
+            <groupId>org.pac4j</groupId>
+            <artifactId>pac4j-core</artifactId>
+            <version>3.7.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.pac4j/pac4j-jwt -->
+        <dependency>
+            <groupId>org.pac4j</groupId>
+            <artifactId>pac4j-jwt</artifactId>
+            <version>3.7.0</version>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>
