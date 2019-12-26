@@ -143,5 +143,21 @@ public class ApplicationServletContextInitializer implements ServletContextIniti
         return registration;
     }
 
+    /**
+     * 用来在登录成功后获取用户信息
+     * Create CAS Validation Filter
+     * @return FilterRegistrationBean
+     */
+    @Bean
+    public FilterRegistrationBean createSecurityAuthorizationFilter(){
+        logger.info("初始化Security Authorization Filter");
+
+        FilterRegistrationBean registration = new FilterRegistrationBean();
+        registration.setName("Security Authorization Filter");
+        registration.setFilter(new SecurityAuthorizationFilter());
+        registration.addUrlPatterns("/*");
+        return registration;
+    }
+
 }
 

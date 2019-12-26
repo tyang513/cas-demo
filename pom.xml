@@ -17,7 +17,7 @@
     <modules>
         <!--<module>cas-server</module>-->
         <module>cas-client</module>
-        <!--<module>cas-client-core</module>-->
+        <module>cas-client-core</module>
         <!--<module>mysql-data-source-adapter</module>-->
     </modules>
 
