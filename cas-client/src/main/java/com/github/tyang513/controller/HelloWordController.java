@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 
 /**
@@ -78,6 +79,13 @@ public class HelloWordController {
     public String hello() {
         logger.error("hello world {}", new Date().getTime());
         return "hello world"+ new Date().getTime();
+    }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logout(HttpSession session) {
+        logger.info("退出登录");
+        session.invalidate();
+        return "redirect:http://172.23.7.83:9001/sso/logout?service=http://localhost:8083/cas-client";
     }
 
 }
