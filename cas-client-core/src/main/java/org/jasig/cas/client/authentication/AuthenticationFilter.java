@@ -25,7 +25,11 @@ import org.jasig.cas.client.util.CommonUtils;
 import org.jasig.cas.client.util.ReflectUtils;
 import org.jasig.cas.client.validation.Assertion;
 
-import javax.servlet.*;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -151,6 +155,7 @@ public class AuthenticationFilter extends AbstractCasFilter {
         final Assertion assertion = session != null ? (Assertion) session.getAttribute(CONST_CAS_ASSERTION) : null;
 
         if (assertion != null) {
+            logger.info(" 验证成功,执行业务方法");
             filterChain.doFilter(request, response);
             return;
         }
@@ -174,6 +179,13 @@ public class AuthenticationFilter extends AbstractCasFilter {
         } else {
             modifiedServiceUrl = serviceUrl;
         }
+        logger.info("验证是否为token登录，如果为token登录则直接进行token验证不进行CAS验证");
+        String token = request.getHeader("token");
+        if (token != null && !"".equals(token)){
+            logger.info("token value : {}", token);
+            filterChain.doFilter(request, response);
+            return ;
+        }
 
         logger.debug("Constructed service url: {}", modifiedServiceUrl);
 
@@ -181,6 +193,7 @@ public class AuthenticationFilter extends AbstractCasFilter {
                 getProtocol().getServiceParameterName(), modifiedServiceUrl, this.renew, this.gateway);
 
         logger.debug("redirecting to \"{}\"", urlToRedirectTo);
+        logger.info("redirecting 到登录地址");
         this.authenticationRedirectStrategy.redirect(request, response, urlToRedirectTo);
     }
 
